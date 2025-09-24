@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     slug: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false
     },
     image: {

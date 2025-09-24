@@ -21,6 +21,7 @@ module.exports = {
     });
     await queryInterface.changeColumn('Articles', 'slug', {
       type: Sequelize.STRING,
+      unique: true,
       allowNull: false
     });
     await queryInterface.changeColumn('Articles', 'image', {
