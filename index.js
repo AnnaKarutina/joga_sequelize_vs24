@@ -5,6 +5,9 @@ const app = express();
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Middleware to parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
 dotenv.config();
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
@@ -26,6 +29,8 @@ const articleRoutes = require('./routes/article');
 app.use('/', articleRoutes);
 const authorRoutes = require('./routes/author');
 app.use('/author', authorRoutes);
+const articleAdminRoutes = require('./routes/admin/article');
+app.use('/admin', articleAdminRoutes);
 
 // Start the server
 app.listen(3026, () => {
