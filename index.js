@@ -24,6 +24,8 @@ sequelize.authenticate()
 // Import routes
 const articleRoutes = require('./routes/article');
 app.use('/', articleRoutes);
+const authorRoutes = require('./routes/author');
+app.use('/author', authorRoutes);
 
 // Start the server
 app.listen(3026, () => {
