@@ -12,6 +12,22 @@ class ArticleController {
         }
     };
 
+    // Get article by slug
+    getArticleBySlug = async (req, res) => {
+        try {
+            const article = await Article.findOne({ 
+                where: { slug: req.params.slug }
+            });
+            if (article) {
+                res.status(200).json(article);
+            } else {
+                res.status(404).json({ error: 'Article not found' });
+            }
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to retrieve article' });
+        }
+    }
+
 }
 
 
