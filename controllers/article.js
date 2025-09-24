@@ -16,7 +16,8 @@ class ArticleController {
     getArticleBySlug = async (req, res) => {
         try {
             const article = await Article.findOne({ 
-                where: { slug: req.params.slug }
+                where: { slug: req.params.slug },
+                include: 'Author'
             });
             if (article) {
                 res.status(200).json(article);
