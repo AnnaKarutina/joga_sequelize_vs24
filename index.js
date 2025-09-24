@@ -21,10 +21,9 @@ sequelize.authenticate()
     console.error('Unable to connect to the database:', err);
   });
 
-// Sample route
-app.get('/', (req, res) => {
-  res.json({message: 'Welcome to sequelize app'});
-});
+// Import routes
+const articleRoutes = require('./routes/article');
+app.use('/', articleRoutes);
 
 // Start the server
 app.listen(3026, () => {
