@@ -2,7 +2,7 @@ const Article = require('../models').Article;
 
 class ArticleController {
 
-    // Create a new article
+    // get all articles
     getAllArticles = async (req, res) => {
         try {
             const articles = await Article.findAll();

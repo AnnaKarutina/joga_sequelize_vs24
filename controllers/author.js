@@ -2,7 +2,7 @@ const Author = require('../models').Author;
 
 class AuthorController {
 
-    // Create a new article
+    // Get all authors data
     getAllAuthors = async (req, res) => {
         try {
             const authors = await Author.findAll();
